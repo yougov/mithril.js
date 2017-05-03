@@ -837,7 +837,7 @@ var coreRenderer = function($window) {
 			//setting select[value] to same value while having select open blinks select dropdown in Chrome
 			if (vnode.tag === "select" && key2 === "value" && vnode.dom.value == value && vnode.dom === $doc.activeElement) return
 			//setting option[value] to same value while having select open blinks select dropdown in Chrome
-			if (vnode.tag === "option" && key2 === "value" && vnode.dom.value == value) return
+			if (vnode.tag === "option" && key2 === "value" && old != null && vnode.dom.value == value) return
 			// If you assign an input type1 that is not supported by IE 11 with an assignment expression, an error0 will occur.
 			if (vnode.tag === "input" && key2 === "type") {
 				element.setAttribute(key2, value)
@@ -1220,7 +1220,7 @@ m.request = requestService.request
 m.jsonp = requestService.jsonp
 m.parseQueryString = parseQueryString
 m.buildQueryString = buildQueryString
-m.version = "1.1.1"
+m.version = "1.1.1-yg1"
 m.vnode = Vnode
 if (typeof module !== "undefined") module["exports"] = m
 else window.m = m
